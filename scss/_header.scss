@@ -9,7 +9,7 @@
     position: relative;
     i {
         position: absolute;
-        top: 32%;
+        top: 42%;
         left: 24px;
         font-size: 110%;
         color: $DarkGray;
@@ -17,6 +17,7 @@
 }
 
 #search {
+    margin: 2rem 0  ;
     /* top | right | bottom | left */
     padding: 1rem 4rem 1rem 4rem;
     border: none;
