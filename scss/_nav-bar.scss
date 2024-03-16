@@ -1,0 +1,11 @@
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 4rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 5px;
+
+    h1 {
+        font-weight: 800;
+    }
+}
