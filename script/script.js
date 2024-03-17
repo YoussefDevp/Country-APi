@@ -1,36 +1,42 @@
-const container = document.getElementById('countrys')
-fetch('./data.json')
-    .then((response) => response.json())
-    .then(data => {
-        data.forEach(item => {     
-            let div = document.createElement('div');
-            let countryData = document.createElement('div');
+const apiCountry = "http://127.0.0.1:5500/data.json";
+const countrys = document.querySelector("#countrys");
+const input = document.getElementById("search");
 
-            let heading = document.createElement('h2');
-            heading.textContent = item.name;
+const getData = async () => {
+    const res = await fetch(apiCountry);
+    const data = await res.json();
+    console.log(data)
+    return data
+}
 
-            let population = document.createElement('p');
-            population.textContent = item.population;
+const displayCountry = async () => {
+    let query = input.value;
+    console.log("query: " , query)  
 
-            let region = document.createElement('p');
-            region.textContent = item.region;
+    const payload = await getData();
 
-            let capital = document.createElement('p');
-            capital.textContent = item.capital;
+    let datadisplay = payload.filter((eventData) => {
+        // console.log(eventData)
+        if (query === '') return true;
+        else if (eventData.name.toLowerCase().includes(query.toLowerCase())) 
+        {return eventData}
+    }).map((object) => {
+        const {flag, name, population, region, capital} = object;
 
-            let img = document.createElement('img');
-            img.setAttribute('src', item.flag);
-            img.setAttribute('alt', item.name);
+        return `
+        <div class="card">
+        <img src="${flag}">
+            <div class="countryData">
+                <p>Name: ${name}</p>
+                <p>Population: ${population}</p>
+                <p>Region: ${region}</p>
+                <p>Capital: ${capital}</p>
+            </div>
+        </div>
+        `
+    }).join("");
 
-            div.appendChild(img);
-            div.appendChild(countryData)
-            
-            countryData.classList.add("countryData");
-            countryData.appendChild(heading); 
-            countryData.appendChild(population); 
-            countryData.appendChild(region); 
-            countryData.appendChild(capital); 
-            container.appendChild(div);   
-    });
-})
+    countrys.innerHTML = datadisplay;
+}
 
+displayCountry();
