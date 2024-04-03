@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 5px;
+}
+#nav h1 {
+  font-weight: 800;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+}
+
+.search {
+  position: relative;
+}
+.search i {
+  position: absolute;
+  top: 42%;
+  left: 24px;
+  font-size: 110%;
+  color: hsl(0, 0%, 52%);
+}
+
+#search {
+  margin: 2rem 0;
+  /* top | right | bottom | left */
+  padding: 1rem 4rem 1rem 4rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+#search:focus {
+  outline: none;
+}
+#search::placeholder {
+  font-weight: 600;
+}
+
+#filters {
+  padding: 1rem;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  appearance: none;
+  background-image: url("https://www.svgrepo.com/show/80156/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  background-position: calc(100% - 16px);
+}
+#filters:focus {
+  outline: none;
+}
+
+#countrys {
+  display: grid;
+  padding: 1rem 4rem;
+  gap: 6rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+#countrys .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 10px;
+}
+#countrys .card img {
+  max-width: 275px;
+  height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#countrys .card h2 {
+  margin-bottom: 1.5rem;
+}
+#countrys .card .countryData {
+  padding: 1.5rem;
+}
+#countrys .card .countryData p:not(:last-child) {
+  margin-bottom: 0.8rem;
+}

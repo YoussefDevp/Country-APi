@@ -4,6 +4,7 @@ const input = document.getElementById("search");
 const filter = document.getElementById("filters");
 
 let countriesData = []; 
+
 const getData = async () => {
     const res = await fetch(apiCountry);
     const data = await res.json();
@@ -12,7 +13,14 @@ const getData = async () => {
 }
 
 const displayCountries = (data) => {
+    let query = input.value.toLowerCase(); // Move the query here
+
     const filteredCountries = data.filter(country => {
+        // Filter based on search query
+        if (query === '') return true;
+        return country.name.toLowerCase().includes(query);
+    }).filter(country => {
+        // Filter based on region selection
         if (filter.value === '') return true;
         return country.region.toLowerCase() === filter.value.toLowerCase();
     });
@@ -38,7 +46,12 @@ const handleFilterChange = () => {
     displayCountries(countriesData);
 }
 
+const handleInput = () => {
+    displayCountries(countriesData);
+}
+
 filter.addEventListener('change', handleFilterChange);
+input.addEventListener('input', handleInput); // Change event listener to input
 
 (async () => {
     await getData();
