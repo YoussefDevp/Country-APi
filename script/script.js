@@ -1,4 +1,4 @@
-const apiCountry = "http://127.0.0.1:5500/data.json";
+const apiCountry = "http://localhost:5500/data.json";
 const countrys = document.querySelector("#countrys");
 const input = document.getElementById("search");
 
@@ -37,6 +37,9 @@ const displayCountry = async () => {
     }).join("");
 
     countrys.innerHTML = datadisplay;
+
+    input.oninput = displayCountry;
 }
 
 displayCountry();
+
