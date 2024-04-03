@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const apiCountry = "http://localhost:5500/data.json";
+=======
+const apiCountry = "http://127.0.0.1:5501/data.json";
+>>>>>>> f1ebefdfacc9f5d0308365edcc0a1ab5752a7afb
 const countrys = document.querySelector("#countrys");
 const input = document.getElementById("search");
 
@@ -42,4 +46,11 @@ const displayCountry = async () => {
 }
 
 displayCountry();
+<<<<<<< HEAD
 
+=======
+input.onblur = () => {
+    console.log("fkvjbkv")
+    displayCountry()
+}
+>>>>>>> f1ebefdfacc9f5d0308365edcc0a1ab5752a7afb
