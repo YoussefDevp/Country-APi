@@ -1,4 +1,4 @@
-const apiCountry = "http://localhost:5500/data.json";
+const apiCountry = "./data.json";
 const countrys = document.querySelector("#countrys");
 const input = document.getElementById("search");
 const filter = document.getElementById("filters");
@@ -30,10 +30,10 @@ const displayCountries = (data) => {
             <div class="card">
                 <img src="${country.flag}">
                 <div class="countryData">
-                    <p>Name: ${country.name}</p>
-                    <p>Population: ${country.population}</p>
-                    <p>Region: ${country.region}</p>
-                    <p>Capital: ${country.capital}</p>
+                    <p><span>Name:</span> ${country.name}</p>
+                    <p><span>Population:</span> ${country.population.toLocaleString()}</p>
+                    <p><span>Region:</span> ${country.region}</p>
+                    <p><span>Capital:</span> ${country.capital}</p>
                 </div>
             </div>
         `;

@@ -97,3 +97,6 @@ body {
 #countrys .card .countryData p:not(:last-child) {
   margin-bottom: 0.8rem;
 }
+#countrys .card .countryData span {
+  font-weight: 800;
+}
